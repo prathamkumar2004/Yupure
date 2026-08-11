@@ -1,4 +1,5 @@
 import React from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import MinimalNavbar from './components/MinimalNavbar';
 import EditorialHero from './components/EditorialHero';
 import EditorialAbout from './components/EditorialAbout';
@@ -37,6 +38,9 @@ export default function App() {
 
       {/* FLOATING WHATSAPP BUTTON (Fixed Bottom Right Corner) */}
       <FloatingWhatsAppButton />
+
+      {/* VERCEL SPEED INSIGHTS */}
+      <SpeedInsights />
 
     </div>
   );
