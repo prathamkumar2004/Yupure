@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg-light: #FAF8F5;
+    --color-bg-cream: #F5F1EA;
+    --color-text-dark: #16191D;
+    --color-cyan: #00cad4;
+    --color-sage: #8A9A86;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #FAF8F5;
+    color: #16191D;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Arvo Font for Headings */
+  h1, h2, h3, h4, h5, h6, .font-serif-editorial, .font-arvo {
+    font-family: 'Arvo', serif;
+  }
+
+  /* Lato Font for Body Text & Interface Elements */
+  p, span, a, label, input, textarea, button, .font-montserrat, .font-lato {
+    font-family: 'Lato', sans-serif;
+  }
+}
+
+/* Minimal Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8D2C7;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00cad4;
+}
+
+/* Glass Navbar Scroll */
+.glass-navbar {
+  background: rgba(250, 248, 245, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.08);
+}
+
+/* Senior UI Nav Link Hover Indicator Animation */
+.nav-link-hover {
+  position: relative;
+}
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #00cad4;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+.nav-link-hover:hover::after {
+  width: 100%;
+}
+
+/* Phone Button Pulse Animation */
+@keyframes phonePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 202, 212, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 202, 212, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 202, 212, 0);
+  }
+}
+
+.animate-phone-pulse {
+  animation: phonePulse 2.5s infinite;
+}
+
+/* Float Animation */
+@keyframes floatSubtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float-subtle {
+  animation: floatSubtle 6s ease-in-out infinite;
+}
+
+/* Dual-Direction Infinite Marquee Keyframe Animations */
+@keyframes marqueeLeftToRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes marqueeRightToLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-left-to-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeftToRight 38s linear infinite;
+}
+
+.animate-marquee-right-to-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeRightToLeft 38s linear infinite;
+}
+
+.marquee-container:hover .animate-marquee-left-to-right,
+.marquee-container:hover .animate-marquee-right-to-left {
+  animation-play-state: paused;
+}
